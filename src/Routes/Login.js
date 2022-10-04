@@ -41,7 +41,6 @@ function Login() {
     // <div><Link to={'/urlshortner'}>Login</Link></div>
    <div className='container text'>
     <form className='login_div col-6 offset-3' onSubmit={formik.handleSubmit}>
-    <span className='float'>x</span>
       <div className='text-center p-5'>Welcome</div>
         <lable  className="form-label">Email</lable>
         <input type="text" name='Email' onChange={formik.handleChange} value={formik.values.Email} className='form-control login_i'></input>
