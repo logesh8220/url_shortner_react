@@ -19,8 +19,13 @@ function Url_Shortner() {
             full:""
         },
         onSubmit: async (value) =>{
-            await axios.post(`${env.api}/urlshortner`,value)
-            LoadData()
+            try {
+                await axios.post(`${env.api}/urlshortner`,value)
+                LoadData()
+                
+            } catch (error) {
+                console.log(error)
+            }
             
         }
     })
@@ -108,7 +113,7 @@ function Logout(){
                     
                     <tr key={shorturl._id} class='tablerow '>
                     <td className='p-3' ><a  href={shorturl.full} target="_blank" rel='noreferrer' style={{textDecoration:"none"}}>
-                            {shorturl.full} <i class='bx bx-link' ></i>
+                            {shorturl.full} <i class="bi bi-link-45deg"></i>
                         </a></td>
                     <td><a href={`https://url-shortner-zen.herokuapp.com/${shorturl.short}`} target="_blank" rel='noreferrer' style={{textDecoration:"none"}}>
                     https://url-shortner-zen.herokuapp.com/{shorturl.short} <i class="bi bi-link-45deg"></i>
