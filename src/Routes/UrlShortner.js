@@ -18,11 +18,11 @@ function Url_Shortner() {
         initialValues:{
             full:""
         },
-        onSubmit: async (value) =>{
+        onSubmit: async (value,{resetForm}) =>{
             try {
-                await axios.post(`${env.api}/urlshortner`,value)
-                LoadData()
-                
+              await axios.post(`${env.api}/urlshortner`,value)
+               LoadData()
+               resetForm({values:""})
             } catch (error) {
                 console.log(error)
             }
@@ -50,7 +50,7 @@ function Logout(){
     window.localStorage.clear()
     toast.error(`See You Again ${params.name}`,{
         position: "bottom-center",
-        className:"tost-class"
+        className:"tost-className"
        })
     navigate('/login')
 }
@@ -65,35 +65,35 @@ function Logout(){
       }
 }
   return (
-    <div className='text'> <nav class="text-center url-nav text-light p-2 navbar">
-    <div class="container">
-        <h1>URL Shortner <i class="bi bi-link-45deg"></i></h1>
-        <h5><i class="bi bi-person-circle me-2"></i>{params.name}</h5>
-        <Link className='text-light a-text ' onClick={Logout} to={'/'}> Logout <i class="bi bi-box-arrow-left"></i></Link>
+    <div className='text'> <nav className="text-center url-nav text-light p-2 navbar">
+    <div className="container">
+        <h1>URL Shortner <i className="bi bi-link-45deg"></i></h1>
+        <h5><i className="bi bi-person-circle me-2"></i>{params.name}</h5>
+        <Link className='text-light a-text ' onClick={Logout} to={'/'}> Logout <i className="bi bi-box-arrow-left"></i></Link>
     </div>
 
 </nav>
-<form onSubmit={formik.handleSubmit}class="container text-center mb-5">
-    <lable for="full" class="sr-only"></lable>
-    <input class="col-8 FullUrl" type="text" name='full' id='FullUrl' onChange={formik.handleChange} value={formik.values.full}  placeholder="URL" required/>
-    <button type="submit" class=" url-btn col-lg-1">Shrink <i class="bi bi-link-45deg "></i></button>
+<form onSubmit={formik.handleSubmit}className="container text-center mb-5">
+    <lable  className="sr-only"></lable>
+    <input className="col-8 FullUrl" type="text" name='full' id='FullUrl' onChange={formik.handleChange} value={formik.values.full}  placeholder="URL" required/>
+    <button type="submit" className=" url-btn col-lg-1">Shrink <i className="bi bi-link-45deg "></i></button>
     </form>
     <div className='table-responsive'>
 
-    <table class="table text-center url-table container">
+    <table className="table text-center url-table container">
             { isloading ?<div>
              
                 <div  aria-hidden="true">
   <div >
-    <h5 class="card-title placeholder-glow">
-      <span class="placeholder col-6"></span>
+    <h5 className="card-title placeholder-glow">
+      <span className="placeholder col-6"></span>
     </h5>
-    <p class=" placeholder-glow">
-      <span class="placeholder col-7"></span>
-      <span class="placeholder col-4"></span>
-      <span class="placeholder col-4"></span>
-      <span class="placeholder col-6"></span>
-      <span class="placeholder col-8"></span>
+    <p className=" placeholder-glow">
+      <span className="placeholder col-7"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-6"></span>
+      <span className="placeholder col-8"></span>
     </p>
   </div>
 </div>
@@ -101,7 +101,7 @@ function Logout(){
             </div> :
         <thead>
             <tr>
-                <th class="">FullUrl</th>
+                <th className="">FullUrl</th>
                 <th>Shrinked Url</th>
                 <th>Clicks</th>
                 <th>Action</th>
@@ -111,18 +111,18 @@ function Logout(){
                     return(
                 
                     
-                    <tr key={shorturl._id} class='tablerow '>
+                    <tr key={shorturl._id} className='tablerow '>
                     <td className='p-3' ><a  href={shorturl.full} target="_blank" rel='noreferrer' style={{textDecoration:"none"}}>
-                            {shorturl.full} <i class="bi bi-link-45deg"></i>
+                            {shorturl.full} <i className="bi bi-link-45deg"></i>
                         </a></td>
                     <td><a href={`https://url-shortner-zen.herokuapp.com/${shorturl.short}`} target="_blank" rel='noreferrer' style={{textDecoration:"none"}}>
-                    https://url-shortner-zen.herokuapp.com/{shorturl.short} <i class="bi bi-link-45deg"></i>
+                    https://url-shortner-zen.herokuapp.com/{shorturl.short} <i className="bi bi-link-45deg"></i>
                         </a></td>
                     <td >
                         {shorturl.clicks}
                     </td >
                         <td>
-                            <p name={shorturl._id} className="deleteicon" onClick={deletelink}>❌</p>
+                            <Link name={shorturl._id} style={{textDecoration:"none"}} onClick={deletelink}>❌</Link>
                         </td>
                 </tr>
                     )

@@ -30,7 +30,7 @@ function Login() {
 
       } catch (error) {
         console.log(error)
-        toast.info(error.response.data.message,{
+        toast.info("Somthing Wrong",{
           position: "bottom-center",
           className:"tost-class"
          })

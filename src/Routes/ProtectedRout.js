@@ -1,6 +1,5 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import Login from './Login'
 
 function ProtectedRout() {
@@ -11,10 +10,5 @@ function ProtectedRout() {
 }
 
 export default ProtectedRout
-if(window.localStorage.length>0){
-  toast.info(`Session expired`,{
-    position: "bottom-center",
-    className:"tost-class"
-   })
-}
+
 console.log(window.localStorage.length>0)

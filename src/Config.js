@@ -1,3 +1,3 @@
 export const env = {
-    api : "https://url-shortner-zen.herokuapp.com"
+    api : "http://localhost:3005"
 }
