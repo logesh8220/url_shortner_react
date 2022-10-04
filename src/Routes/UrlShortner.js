@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { env } from '../Config'
-import './Urlsortner.css'
 
 function Url_Shortner() {
     const [isloading,setloading] = useState(false)

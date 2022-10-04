@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import Url_Shortner from './Routes/Url_Shortner';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import UrlShortner from './Routes/UrlShortner';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './Routes/Login';
 import Register from './Routes/Register';
@@ -21,7 +21,7 @@ function App() {
   <Route path='/login' element={<Login/>}></Route>
   <Route path='/forgot' element={<Forgot/>}></Route>
   <Route element={<ProtectedRout/>}>
-  <Route path='/urlshortner/:name' element={<Url_Shortner/>}></Route>
+  <Route path='/urlshortner/:name' element={<UrlShortner/>}></Route>
   </Route>
   <Route path='/:userid/:token' element={<Reset/>}></Route>
 </Routes>
