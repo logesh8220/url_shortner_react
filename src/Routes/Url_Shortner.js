@@ -11,7 +11,6 @@ function Url_Shortner() {
     const params = useParams()
        useEffect(()=>{
            LoadData()
-         timout()
        },[])
  
     const [useurls,seturls] = useState([])
@@ -43,17 +42,6 @@ const LoadData = async () =>{
 
 }
 
-function timout(){
- setTimeout(timoutlogout,1000*60*20)
-}
-function timoutlogout(){
-    toast.error(`Session Expired ${params.name}`,{
-        position: "bottom-center",
-        className:"tost-class"
-       })
-    window.localStorage.clear()
-    navigate('/login')
-}
 function Logout(){
     window.localStorage.clear()
     toast.error(`See You Again ${params.name}`,{
@@ -77,7 +65,7 @@ function Logout(){
     <div class="container">
         <h1>URL Shortner <i class="bi bi-link-45deg"></i></h1>
         <h5><i class="bi bi-person-circle me-2"></i>{params.name}</h5>
-        <Link className='text-light a-text ' onClick={Logout} to={'/'}> Logout <i class='bx bx-log-out' ></i></Link>
+        <Link className='text-light a-text ' onClick={Logout} to={'/'}> Logout <i class="bi bi-box-arrow-left"></i></Link>
     </div>
 
 </nav>
@@ -103,7 +91,6 @@ function Logout(){
       <span class="placeholder col-6"></span>
       <span class="placeholder col-8"></span>
     </p>
-    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
   </div>
 </div>
 
@@ -121,17 +108,17 @@ function Logout(){
                 
                     
                     <tr key={shorturl._id} class='tablerow '>
-                    <td className='p-3' ><a  href={shorturl.full} target="_blank" style={{textDecoration:"none"}}>
+                    <td className='p-3' ><a  href={shorturl.full} target="_blank" rel='noreferrer' style={{textDecoration:"none"}}>
                             {shorturl.full} <i class='bx bx-link' ></i>
                         </a></td>
-                    <td><a href={`https://url-shortner-zen.herokuapp.com/${shorturl.short}`} target="_blank" style={{textDecoration:"none"}}>
+                    <td><a href={`https://url-shortner-zen.herokuapp.com/${shorturl.short}`} target="_blank" rel='noreferrer' style={{textDecoration:"none"}}>
                     https://url-shortner-zen.herokuapp.com/{shorturl.short} <i class="bi bi-link-45deg"></i>
                         </a></td>
                     <td >
                         {shorturl.clicks}
                     </td >
                         <td>
-                            <a name={shorturl._id} onClick={deletelink}>❌</a>
+                            <p name={shorturl._id} className="deleteicon" onClick={deletelink}>❌</p>
                         </td>
                 </tr>
                     )

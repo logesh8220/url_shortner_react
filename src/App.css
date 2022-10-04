@@ -12,6 +12,62 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Capriola&family=Montserrat+Alternates:wght@100&family=Play:wght@700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Michroma&family=Rajdhani&display=swap');
+
+.text{
+   font-family: 'Maven Pro', sans-serif;
+}
+.FullUrl {
+    padding: 10px;
+    margin: 30px 30px 0px 0px;
+    border-radius: 1px;
+    outline: none;
+    border: none;
+    font-family: 'Play', sans-serif;
+    border: 1px solid #61dafb;
+}
+.tost-class{
+    background-color: #61dafb !important;
+}
+.get_start{
+    color: #1eab9b;
+    text-decoration: none;
+    font-size: 30px;
+}
+.deleteicon{
+  cursor: pointer;
+}
+
+.get_start:hover{
+    color: #1eab9b;
+}
+.url-btn {
+    padding: 10px;
+    border-radius: 1px;
+    border: none;
+    outline: none;
+    background-color: #61dafb;
+    color: rgb(255, 255, 255);
+    font-family: 'Play', sans-serif;
+    border: 1 solid #61dafb;
+}
+.url-nav {
+    background-color: #61dafb;
+}
+.url-btn:hover {
+    box-shadow: 3px 3px 40px #61dafb;
+    transition: 0.3s ease-in-out;
+}
+
+.url-table {
+    box-shadow: 2px 2px 10px rgb(234, 234, 240);
+    border-radius: 5px;
+}
+
 .tablerow{
   box-shadow: 2px 2px 10px rgb(234, 234, 240);
   border-radius: 5px;
@@ -78,9 +134,7 @@ select.input_error{
   margin-top: 20px;
   width: 100%;
 }
-.home{
- 
-}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
